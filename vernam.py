@@ -2,7 +2,6 @@ def vernam_cipher_encrypt(plaintext, key):
     # Convert plaintext and key to lists of ASCII values
     plaintext_ascii = [ord(c) for c in plaintext]
     key_ascii = [ord(c) for c in key]
-    print(key_ascii)
     # XOR the plaintext and key
     ciphertext = [p ^ k for p, k in zip(plaintext_ascii, key_ascii)]
 
@@ -20,8 +19,10 @@ def vernam_cipher_decrypt(ciphertext, key):
     # Convert the resulting list of ASCII values to a string
     return ''.join([chr(p) for p in plaintext])
 
-ciphertext = vernam_cipher_encrypt("cypher", "194576")
-print(ciphertext)
+text = input("Input text: ")
+key = input("Input key: ")
+ciphertext = vernam_cipher_encrypt(text, key)
+print(f"Ma hoa: {ciphertext}")
 
-plaintext = vernam_cipher_decrypt(ciphertext, "194576")
-print(plaintext)
+plaintext = vernam_cipher_decrypt(ciphertext, key)
+print(f"Giai ma: {plaintext}")
