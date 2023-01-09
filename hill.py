@@ -24,7 +24,6 @@ def hill_cipher(text, key, mode):
     if mode == "encrypt":
         key = np.mod(key, 26)
     blocks = np.array([ord(c) - ord('a') for c in text]).reshape(-1, n)
-    print("? = ", blocks)
     # encrypt or decrypt the blocks
     if mode == "encrypt":
         encrypted = np.array([np.mod(np.dot(key, block), 26) for block in blocks])
